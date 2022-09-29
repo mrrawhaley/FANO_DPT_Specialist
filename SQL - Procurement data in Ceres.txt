@@ -1,0 +1,13 @@
+SELECT ilrv.[Entry No_] AS 'Transaction ID', CASE WHEN ilrv.[Entry Type] = 0 THEN 'Donated' WHEN ilrv.[Entry Type] = 12 THEN 'Purchased' END AS 'Entry Type', ilrv.[Source No_] AS 'Unique Vendor ID', ilrv.[Parent Source No_] AS 'Parent Vendor ID', ilrv.[UNC Donor ID] AS 'UNC Donor ID', ilrv.[Posting Date], ilrv.[Ext_ Gross Weight] AS 'Number of Pounds', v.[Name] AS 'Donor Name', v.[Post Code] AS 'Donor ZIP Code', uncpt.[Description] AS 'UNC Product Type', uncpc.[Description] AS 'UNC Product Category', uncps.[Description] AS 'UNC Product Source', CASE WHEN ilrv.[Item No_] IN ({{ agency-enabled donation item numbers }}) THEN 'Yes' ELSE 'No' END AS 'Agency Enabled Donation'
+
+FROM [{{ Item Ledger Report View table }}] AS ilrv
+
+LEFT JOIN [{{ Vendor table }}] AS v ON v.[No_] = ilrv.[Source No_]
+
+LEFT JOIN [{{ UNC Product Type table }}] AS uncpt ON uncpt.[Code] = ilrv.[UNC Product Type Code]
+
+LEFT JOIN [{{ UNC Product Category table }}] AS uncpc ON uncpc.[Code] = ilrv.[UNC Product Category Code]
+
+LEFT JOIN [{{ UNC Product Source table }}] AS uncps ON uncps.[Code] = ilrv.[UNC Product Source Code]
+
+WHERE ilrv.[Posting Date] BETWEEN '{{ start date }}' AND '{{ end date }}' AND ([Entry Type] = 0 OR [Entry Type] = 12)
