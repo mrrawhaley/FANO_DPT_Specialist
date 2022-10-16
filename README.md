@@ -7,3 +7,7 @@ I have also included in this repository a SQL query for pulling data from Ceres.
 Finally, this repository contains an Excel-based service desk. This project demonstrates advanced Excel skills (dashboard, Visual Basic for Applications coding, user forms), understanding and application of relational database structure, and translation of business rules and processes into a usable product (i.e., creating a service desk for handling and reporting on service requests).
 
 You can download all these files using the ZIP file linked [here](https://github.com/mrrawhaley/FANO_DPT_Specialist/raw/main/Regis%20Whaley%20-%20Specialist%2C%20DPT.zip).
+
+* * *
+
+10/16/2022: I added a presentation, dashboard, and data source I used to present my Service Insights work from late 2020. These files are in the "Service Insights Viz" folder.
