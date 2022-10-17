@@ -11,3 +11,7 @@ You can download all these files using the ZIP file linked [here](https://github
 * * *
 
 10/16/2022: I added a presentation, dashboard, and data source I used to present my Service Insights work from late 2020. These files are in the "Service Insights Viz" folder.
+
+* * *
+
+10/17/2022: I added an OrderAhead Excel add-in that I've been working on as a part of this application.
